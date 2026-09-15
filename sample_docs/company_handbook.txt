@@ -1,0 +1,22 @@
+Sydon Engineering Employee Handbook
+
+1. Working Hours
+Sydon operates on a flexible working hours policy. Employees are expected to be online and reachable between 11:00 AM and 4:00 PM IST, which we call core hours. Outside of core hours, employees may structure their day as they see fit, provided their total working time meets 8 hours per weekday. Remote work is fully supported, and there is no requirement to be in a physical office.
+
+2. Leave Policy
+Full-time employees accrue 1.5 days of paid leave per month, capped at 18 days per calendar year. Unused leave beyond 5 days does not carry over into the next year. Sick leave is separate and uncapped, but requires a manager notification within 24 hours of the absence starting. Maternity leave is 26 weeks and paternity leave is 4 weeks, both fully paid.
+
+3. Expense Reimbursement
+Employees may claim reimbursement for work-related expenses including internet bills, co-working space fees, and conference travel. All claims must be submitted through the finance portal within 30 days of the expense being incurred, along with an itemized receipt. Claims submitted after 30 days require manager approval and are processed on a case-by-case basis. The monthly internet reimbursement cap is 1500 INR.
+
+4. Performance Reviews
+Performance reviews happen twice a year, in April and October. Each review includes a self-assessment, peer feedback from at least two colleagues, and a manager evaluation. Ratings range from "Needs Improvement" to "Exceptional" on a five-point scale. Compensation revisions, when applicable, are typically communicated within two weeks of the review cycle closing.
+
+5. Equipment Policy
+New employees receive a laptop, monitor, and ergonomic chair within the first two weeks of joining. Laptops are refreshed every 3 years or upon major hardware failure, whichever comes first. All equipment remains company property and must be returned within 15 days of an employee's last working day.
+
+6. Code Review Standards
+All code changes require at least one approving review before merging to the main branch. Reviewers are expected to respond to review requests within one business day. Critical hotfixes may bypass the standard review SLA with a director's sign-off, but still require a review to be filed retroactively within 24 hours.
+
+7. On-Call Rotation
+Engineers on the platform team participate in a weekly on-call rotation. On-call engineers are compensated with an additional stipend and one day of compensatory leave per rotation week. Escalation beyond the on-call engineer follows the incident severity matrix documented in the internal runbook.

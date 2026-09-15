@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="650" viewBox="0 0 960 650" font-family="Helvetica, Arial, sans-serif">
+<rect width="960" height="650" fill="#ffffff"/>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#555555"/></marker></defs>
+<path d="M520.0,70 L230.0,130" stroke="#555555" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<path d="M520.0,70 L810.0,130" stroke="#555555" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<path d="M520.0,70 L230.0,200" stroke="#555555" stroke-width="1.5" fill="none" stroke-dasharray="5,4" marker-end="url(#arrow)"/>
+<path d="M520.0,70 L230.0,270" stroke="#555555" stroke-width="1.5" fill="none" stroke-dasharray="5,4" marker-end="url(#arrow)"/>
+<path d="M340,155.0 L400,155.0" stroke="#555555" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<path d="M510.0,180 L510.0,200" stroke="#555555" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<text x="510.0" y="186.0" font-size="9.5" fill="#333333" text-anchor="middle" style="paint-order:stroke;stroke:#ffffff;stroke-width:3px">202 Accepted</text>
+<text x="510.0" y="197.0" font-size="9.5" fill="#333333" text-anchor="middle" style="paint-order:stroke;stroke:#ffffff;stroke-width:3px">(job_id returned)</text>
+<path d="M510.0,250 L510.0,270" stroke="#555555" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<text x="510.0" y="256.0" font-size="9.5" fill="#333333" text-anchor="middle" style="paint-order:stroke;stroke:#ffffff;stroke-width:3px">picked up by</text>
+<text x="510.0" y="267.0" font-size="9.5" fill="#333333" text-anchor="middle" style="paint-order:stroke;stroke:#ffffff;stroke-width:3px">worker pool</text>
+<path d="M510.0,320 L510.0,340" stroke="#555555" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<path d="M510.0,390 L510.0,410" stroke="#555555" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<text x="510.0" y="396.0" font-size="9.5" fill="#333333" text-anchor="middle" style="paint-order:stroke;stroke:#ffffff;stroke-width:3px">raw text</text>
+<path d="M510.0,460 L510.0,480" stroke="#555555" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<text x="510.0" y="466.0" font-size="9.5" fill="#333333" text-anchor="middle" style="paint-order:stroke;stroke:#ffffff;stroke-width:3px">chunks</text>
+<path d="M510.0,530 L510.0,550" stroke="#555555" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<text x="510.0" y="536.0" font-size="9.5" fill="#333333" text-anchor="middle" style="paint-order:stroke;stroke:#ffffff;stroke-width:3px">vectors +</text>
+<text x="510.0" y="547.0" font-size="9.5" fill="#333333" text-anchor="middle" style="paint-order:stroke;stroke:#ffffff;stroke-width:3px">metadata</text>
+<path d="M340,225.0 L400,225.0" stroke="#555555" stroke-width="1.5" fill="none" stroke-dasharray="5,4" marker-end="url(#arrow)"/>
+<text x="370.0" y="221.0" font-size="9.5" fill="#333333" text-anchor="middle" style="paint-order:stroke;stroke:#ffffff;stroke-width:3px">reads status</text>
+<path d="M230.0,320 L510.0,200" stroke="#555555" stroke-width="1.5" fill="none" stroke-dasharray="5,4" marker-end="url(#arrow)"/>
+<text x="370.0" y="256.0" font-size="9.5" fill="#333333" text-anchor="middle" style="paint-order:stroke;stroke:#ffffff;stroke-width:3px">reads latest</text>
+<text x="370.0" y="267.0" font-size="9.5" fill="#333333" text-anchor="middle" style="paint-order:stroke;stroke:#ffffff;stroke-width:3px">job per doc</text>
+<path d="M510.0,320 L510.0,200" stroke="#555555" stroke-width="1.5" fill="none" stroke-dasharray="5,4" marker-end="url(#arrow)"/>
+<text x="510.0" y="256.0" font-size="9.5" fill="#333333" text-anchor="middle" style="paint-order:stroke;stroke:#ffffff;stroke-width:3px">updates status:</text>
+<text x="510.0" y="267.0" font-size="9.5" fill="#333333" text-anchor="middle" style="paint-order:stroke;stroke:#ffffff;stroke-width:3px">queued -&gt; processing -&gt; done/failed</text>
+<path d="M810.0,180 L810.0,200" stroke="#555555" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<path d="M810.0,250 L810.0,270" stroke="#555555" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<path d="M810.0,320 L510.0,550" stroke="#555555" stroke-width="1.5" fill="none" stroke-dasharray="5,4" marker-end="url(#arrow)"/>
+<text x="660.0" y="431.0" font-size="9.5" fill="#333333" text-anchor="middle" style="paint-order:stroke;stroke:#ffffff;stroke-width:3px">reads index</text>
+<path d="M810.0,320 L810.0,340" stroke="#555555" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<text x="810.0" y="326.0" font-size="9.5" fill="#333333" text-anchor="middle" style="paint-order:stroke;stroke:#ffffff;stroke-width:3px">top-k chunks</text>
+<path d="M810.0,390 L810.0,410" stroke="#555555" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<path d="M810.0,460 L810.0,480" stroke="#555555" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<path d="M810.0,530 L810.0,130" stroke="#555555" stroke-width="1.5" fill="none" stroke-dasharray="5,4" marker-end="url(#arrow)"/>
+<text x="810.0" y="326.0" font-size="9.5" fill="#333333" text-anchor="middle" style="paint-order:stroke;stroke:#ffffff;stroke-width:3px">200 OK</text>
+<rect x="420" y="20" width="200" height="50" rx="8" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.5"/>
+<text x="520.0" y="42.0" font-size="11.5" fill="#222222" text-anchor="middle" font-weight="400">Client</text>
+<text x="520.0" y="56.0" font-size="11.5" fill="#222222" text-anchor="middle" font-weight="400">(curl / Swagger UI / frontend)</text>
+<rect x="120" y="130" width="220" height="50" rx="8" fill="#d5e8d4" stroke="#82b366" stroke-width="1.5"/>
+<text x="230.0" y="152.0" font-size="11.5" fill="#222222" text-anchor="middle" font-weight="400">POST /documents/upload</text>
+<text x="230.0" y="166.0" font-size="11.5" fill="#222222" text-anchor="middle" font-weight="400">(Pydantic validated, rate-limited)</text>
+<rect x="120" y="200" width="220" height="50" rx="8" fill="#d5e8d4" stroke="#82b366" stroke-width="1.5"/>
+<text x="230.0" y="229.0" font-size="11.5" fill="#222222" text-anchor="middle" font-weight="600">GET /documents/{job_id}/status</text>
+<rect x="120" y="270" width="220" height="50" rx="8" fill="#d5e8d4" stroke="#82b366" stroke-width="1.5"/>
+<text x="230.0" y="299.0" font-size="11.5" fill="#222222" text-anchor="middle" font-weight="600">GET /documents</text>
+<rect x="700" y="130" width="220" height="50" rx="8" fill="#d5e8d4" stroke="#82b366" stroke-width="1.5"/>
+<text x="810.0" y="152.0" font-size="11.5" fill="#222222" text-anchor="middle" font-weight="400">POST /query</text>
+<text x="810.0" y="166.0" font-size="11.5" fill="#222222" text-anchor="middle" font-weight="400">(Pydantic validated, rate-limited)</text>
+<rect x="400" y="130" width="220" height="50" rx="8" fill="#ffe6cc" stroke="#d79b00" stroke-width="1.5"/>
+<text x="510.0" y="152.0" font-size="11.5" fill="#222222" text-anchor="middle" font-weight="400">Save upload to</text>
+<text x="510.0" y="166.0" font-size="11.5" fill="#222222" text-anchor="middle" font-weight="400">data/uploads/</text>
+<rect x="400" y="200" width="220" height="50" rx="8" fill="#f8cecc" stroke="#b85450" stroke-width="1.5"/>
+<text x="510.0" y="222.0" font-size="11.5" fill="#222222" text-anchor="middle" font-weight="400">Create job row</text>
+<text x="510.0" y="236.0" font-size="11.5" fill="#222222" text-anchor="middle" font-weight="400">jobs.db (SQLite)</text>
+<rect x="400" y="270" width="220" height="50" rx="8" fill="#ffe6cc" stroke="#d79b00" stroke-width="1.5"/>
+<text x="510.0" y="292.0" font-size="11.5" fill="#222222" text-anchor="middle" font-weight="400">ThreadPoolExecutor worker</text>
+<text x="510.0" y="306.0" font-size="11.5" fill="#222222" text-anchor="middle" font-weight="400">picks up queued job</text>
+<rect x="400" y="340" width="220" height="50" rx="8" fill="#ffe6cc" stroke="#d79b00" stroke-width="1.5"/>
+<text x="510.0" y="362.0" font-size="11.5" fill="#222222" text-anchor="middle" font-weight="400">Loader: pypdf (.pdf)</text>
+<text x="510.0" y="376.0" font-size="11.5" fill="#222222" text-anchor="middle" font-weight="400">or plain read (.txt)</text>
+<rect x="400" y="410" width="220" height="50" rx="8" fill="#ffe6cc" stroke="#d79b00" stroke-width="1.5"/>
+<text x="510.0" y="432.0" font-size="11.5" fill="#222222" text-anchor="middle" font-weight="400">Recursive chunker</text>
+<text x="510.0" y="446.0" font-size="11.5" fill="#222222" text-anchor="middle" font-weight="400">(chunk_size=800, overlap=120)</text>
+<rect x="400" y="480" width="220" height="50" rx="8" fill="#ffe6cc" stroke="#d79b00" stroke-width="1.5"/>
+<text x="510.0" y="502.0" font-size="11.5" fill="#222222" text-anchor="middle" font-weight="400">Embedder</text>
+<text x="510.0" y="516.0" font-size="11.5" fill="#222222" text-anchor="middle" font-weight="400">(local / openai / offline)</text>
+<rect x="400" y="550" width="220" height="60" rx="8" fill="#f8cecc" stroke="#b85450" stroke-width="1.5"/>
+<text x="510.0" y="570.0" font-size="11.5" fill="#222222" text-anchor="middle" font-weight="400">FAISS IndexFlatIP</text>
+<text x="510.0" y="584.0" font-size="11.5" fill="#222222" text-anchor="middle" font-weight="400">+ metadata.json</text>
+<text x="510.0" y="598.0" font-size="11.5" fill="#222222" text-anchor="middle" font-weight="400">(data/index/, persisted to disk)</text>
+<rect x="700" y="200" width="220" height="50" rx="8" fill="#e1d5e7" stroke="#9673a6" stroke-width="1.5"/>
+<text x="810.0" y="222.0" font-size="11.5" fill="#222222" text-anchor="middle" font-weight="400">Embed question</text>
+<text x="810.0" y="236.0" font-size="11.5" fill="#222222" text-anchor="middle" font-weight="400">(same embedder as ingestion)</text>
+<rect x="700" y="270" width="220" height="50" rx="8" fill="#e1d5e7" stroke="#9673a6" stroke-width="1.5"/>
+<text x="810.0" y="292.0" font-size="11.5" fill="#222222" text-anchor="middle" font-weight="400">FAISS similarity search</text>
+<text x="810.0" y="306.0" font-size="11.5" fill="#222222" text-anchor="middle" font-weight="400">(top_k nearest chunks)</text>
+<rect x="700" y="340" width="220" height="50" rx="8" fill="#e1d5e7" stroke="#9673a6" stroke-width="1.5"/>
+<text x="810.0" y="355.0" font-size="11.5" fill="#222222" text-anchor="middle" font-weight="400">Answer generation:</text>
+<text x="810.0" y="369.0" font-size="11.5" fill="#222222" text-anchor="middle" font-weight="400">OpenAI chat completion,</text>
+<text x="810.0" y="383.0" font-size="11.5" fill="#222222" text-anchor="middle" font-weight="400">or extractive fallback</text>
+<rect x="700" y="410" width="220" height="50" rx="8" fill="#f8cecc" stroke="#b85450" stroke-width="1.5"/>
+<text x="810.0" y="432.0" font-size="11.5" fill="#222222" text-anchor="middle" font-weight="400">Log metrics.jsonl</text>
+<text x="810.0" y="446.0" font-size="11.5" fill="#222222" text-anchor="middle" font-weight="400">(latency, top similarity, mode)</text>
+<rect x="700" y="480" width="220" height="50" rx="8" fill="#e1d5e7" stroke="#9673a6" stroke-width="1.5"/>
+<text x="810.0" y="502.0" font-size="11.5" fill="#222222" text-anchor="middle" font-weight="400">Response: answer +</text>
+<text x="810.0" y="516.0" font-size="11.5" fill="#222222" text-anchor="middle" font-weight="400">sources + metrics (JSON)</text>
+<rect x="20" y="600" width="16" height="16" rx="3" fill="#dae8fc" stroke="#6c8ebf"/>
+<text x="42" y="613" font-size="11" fill="#222222">Client</text>
+<rect x="99.2" y="600" width="16" height="16" rx="3" fill="#d5e8d4" stroke="#82b366"/>
+<text x="121.2" y="613" font-size="11" fill="#222222">API layer</text>
+<rect x="197.0" y="600" width="16" height="16" rx="3" fill="#ffe6cc" stroke="#d79b00"/>
+<text x="219.0" y="613" font-size="11" fill="#222222">Ingestion pipeline</text>
+<rect x="350.6" y="600" width="16" height="16" rx="3" fill="#f8cecc" stroke="#b85450"/>
+<text x="372.6" y="613" font-size="11" fill="#222222">Storage</text>
+<rect x="436.0" y="600" width="16" height="16" rx="3" fill="#e1d5e7" stroke="#9673a6"/>
+<text x="458.0" y="613" font-size="11" fill="#222222">Query pipeline</text>
+</svg>

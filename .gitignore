@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+.env
+venv/
+.venv/
+data/uploads/*
+!data/uploads/.gitkeep
+data/index/*
+!data/index/.gitkeep
+data/jobs.db
+data/metrics.jsonl
+.pytest_cache/
+*.egg-info/
+.DS_Store
