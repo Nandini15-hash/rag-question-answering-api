@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="rag-qa-system/generate_diagram.py" version="24.7.0">
   <diagram name="RAG Architecture" id="rag-architecture">
-    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="700" math="0" shadow="0">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1020" pageHeight="700" math="0" shadow="0">
       <root>
         <mxCell id="0" />
 <mxCell id="1" parent="0" />
@@ -38,32 +38,30 @@ or extractive fallback" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e
 (latency, top similarity, mode)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" vertex="1" parent="1"><mxGeometry x="700" y="410" width="220" height="50" as="geometry" /></mxCell>
 <mxCell id="n17" value="Response: answer +
 sources + metrics (JSON)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;" vertex="1" parent="1"><mxGeometry x="700" y="480" width="220" height="50" as="geometry" /></mxCell>
-<mxCell id="n18" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;" edge="1" parent="1" source="n1" target="n2"><mxGeometry relative="1" as="geometry" /></mxCell>
-<mxCell id="n19" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;" edge="1" parent="1" source="n1" target="n5"><mxGeometry relative="1" as="geometry" /></mxCell>
-<mxCell id="n20" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;dashed=1;" edge="1" parent="1" source="n1" target="n3"><mxGeometry relative="1" as="geometry" /></mxCell>
-<mxCell id="n21" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;dashed=1;" edge="1" parent="1" source="n1" target="n4"><mxGeometry relative="1" as="geometry" /></mxCell>
-<mxCell id="n22" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;" edge="1" parent="1" source="n2" target="n6"><mxGeometry relative="1" as="geometry" /></mxCell>
+<mxCell id="n18" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;" edge="1" parent="1" source="n1" target="n2"><mxGeometry relative="1" as="geometry"></mxGeometry></mxCell>
+<mxCell id="n19" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;" edge="1" parent="1" source="n1" target="n5"><mxGeometry relative="1" as="geometry"></mxGeometry></mxCell>
+<mxCell id="n20" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;dashed=1;" edge="1" parent="1" source="n1" target="n3"><mxGeometry relative="1" as="geometry"></mxGeometry></mxCell>
+<mxCell id="n21" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;dashed=1;" edge="1" parent="1" source="n1" target="n4"><mxGeometry relative="1" as="geometry"></mxGeometry></mxCell>
+<mxCell id="n22" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;" edge="1" parent="1" source="n2" target="n6"><mxGeometry relative="1" as="geometry"></mxGeometry></mxCell>
 <mxCell id="n23" value="202 Accepted
-(job_id returned)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;" edge="1" parent="1" source="n6" target="n7"><mxGeometry relative="1" as="geometry" /></mxCell>
-<mxCell id="n24" value="picked up by
-worker pool" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;" edge="1" parent="1" source="n7" target="n8"><mxGeometry relative="1" as="geometry" /></mxCell>
-<mxCell id="n25" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;" edge="1" parent="1" source="n8" target="n9"><mxGeometry relative="1" as="geometry" /></mxCell>
-<mxCell id="n26" value="raw text" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;" edge="1" parent="1" source="n9" target="n10"><mxGeometry relative="1" as="geometry" /></mxCell>
-<mxCell id="n27" value="chunks" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;" edge="1" parent="1" source="n10" target="n11"><mxGeometry relative="1" as="geometry" /></mxCell>
+(job_id returned)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;" edge="1" parent="1" source="n6" target="n7"><mxGeometry relative="1" as="geometry"></mxGeometry></mxCell>
+<mxCell id="n24" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;" edge="1" parent="1" source="n7" target="n8"><mxGeometry relative="1" as="geometry"></mxGeometry></mxCell>
+<mxCell id="n25" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;" edge="1" parent="1" source="n8" target="n9"><mxGeometry relative="1" as="geometry"></mxGeometry></mxCell>
+<mxCell id="n26" value="raw text" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;" edge="1" parent="1" source="n9" target="n10"><mxGeometry relative="1" as="geometry"></mxGeometry></mxCell>
+<mxCell id="n27" value="chunks" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;" edge="1" parent="1" source="n10" target="n11"><mxGeometry relative="1" as="geometry"></mxGeometry></mxCell>
 <mxCell id="n28" value="vectors +
-metadata" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;" edge="1" parent="1" source="n11" target="n12"><mxGeometry relative="1" as="geometry" /></mxCell>
-<mxCell id="n29" value="reads status" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;dashed=1;" edge="1" parent="1" source="n3" target="n7"><mxGeometry relative="1" as="geometry" /></mxCell>
+metadata" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;" edge="1" parent="1" source="n11" target="n12"><mxGeometry relative="1" as="geometry"></mxGeometry></mxCell>
+<mxCell id="n29" value="reads status" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;dashed=1;" edge="1" parent="1" source="n3" target="n7"><mxGeometry relative="1" as="geometry"></mxGeometry></mxCell>
 <mxCell id="n30" value="reads latest
-job per doc" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;dashed=1;" edge="1" parent="1" source="n4" target="n7"><mxGeometry relative="1" as="geometry" /></mxCell>
-<mxCell id="n31" value="updates status:
-queued -&gt; processing -&gt; done/failed" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;dashed=1;" edge="1" parent="1" source="n8" target="n7"><mxGeometry relative="1" as="geometry" /></mxCell>
-<mxCell id="n32" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;" edge="1" parent="1" source="n5" target="n13"><mxGeometry relative="1" as="geometry" /></mxCell>
-<mxCell id="n33" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;" edge="1" parent="1" source="n13" target="n14"><mxGeometry relative="1" as="geometry" /></mxCell>
-<mxCell id="n34" value="reads index" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;dashed=1;" edge="1" parent="1" source="n14" target="n12"><mxGeometry relative="1" as="geometry" /></mxCell>
-<mxCell id="n35" value="top-k chunks" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;" edge="1" parent="1" source="n14" target="n15"><mxGeometry relative="1" as="geometry" /></mxCell>
-<mxCell id="n36" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;" edge="1" parent="1" source="n15" target="n16"><mxGeometry relative="1" as="geometry" /></mxCell>
-<mxCell id="n37" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;" edge="1" parent="1" source="n16" target="n17"><mxGeometry relative="1" as="geometry" /></mxCell>
-<mxCell id="n38" value="200 OK" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;dashed=1;" edge="1" parent="1" source="n17" target="n5"><mxGeometry relative="1" as="geometry" /></mxCell>
+job per doc" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;dashed=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="n4" target="n7"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="380" y="295" /><mxPoint x="380" y="225" /></Array></mxGeometry></mxCell>
+<mxCell id="n31" value="writes status" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;dashed=1;exitX=0.15;exitY=0;exitDx=0;exitDy=0;entryX=0.15;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="n8" target="n7"><mxGeometry relative="1" as="geometry"></mxGeometry></mxCell>
+<mxCell id="n32" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;" edge="1" parent="1" source="n5" target="n13"><mxGeometry relative="1" as="geometry"></mxGeometry></mxCell>
+<mxCell id="n33" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;" edge="1" parent="1" source="n13" target="n14"><mxGeometry relative="1" as="geometry"></mxGeometry></mxCell>
+<mxCell id="n34" value="reads index" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;dashed=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="n14" target="n12"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="660" y="295" /><mxPoint x="660" y="580" /></Array></mxGeometry></mxCell>
+<mxCell id="n35" value="top-k chunks" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;" edge="1" parent="1" source="n14" target="n15"><mxGeometry relative="1" as="geometry"></mxGeometry></mxCell>
+<mxCell id="n36" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;" edge="1" parent="1" source="n15" target="n16"><mxGeometry relative="1" as="geometry"></mxGeometry></mxCell>
+<mxCell id="n37" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;" edge="1" parent="1" source="n16" target="n17"><mxGeometry relative="1" as="geometry"></mxGeometry></mxCell>
+<mxCell id="n38" value="200 OK" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;dashed=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="n17" target="n5"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="945" y="505" /><mxPoint x="945" y="155" /></Array></mxGeometry></mxCell>
       </root>
     </mxGraphModel>
   </diagram>

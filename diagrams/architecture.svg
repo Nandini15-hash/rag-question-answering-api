@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="650" viewBox="0 0 960 650" font-family="Helvetica, Arial, sans-serif">
-<rect width="960" height="650" fill="#ffffff"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1010" height="650" viewBox="0 0 1010 650" font-family="Helvetica, Arial, sans-serif">
+<rect width="1010" height="650" fill="#ffffff"/>
 <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#555555"/></marker></defs>
 <path d="M520.0,70 L230.0,130" stroke="#555555" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
 <path d="M520.0,70 L810.0,130" stroke="#555555" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
@@ -10,8 +10,6 @@
 <text x="510.0" y="186.0" font-size="9.5" fill="#333333" text-anchor="middle" style="paint-order:stroke;stroke:#ffffff;stroke-width:3px">202 Accepted</text>
 <text x="510.0" y="197.0" font-size="9.5" fill="#333333" text-anchor="middle" style="paint-order:stroke;stroke:#ffffff;stroke-width:3px">(job_id returned)</text>
 <path d="M510.0,250 L510.0,270" stroke="#555555" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
-<text x="510.0" y="256.0" font-size="9.5" fill="#333333" text-anchor="middle" style="paint-order:stroke;stroke:#ffffff;stroke-width:3px">picked up by</text>
-<text x="510.0" y="267.0" font-size="9.5" fill="#333333" text-anchor="middle" style="paint-order:stroke;stroke:#ffffff;stroke-width:3px">worker pool</text>
 <path d="M510.0,320 L510.0,340" stroke="#555555" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
 <path d="M510.0,390 L510.0,410" stroke="#555555" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
 <text x="510.0" y="396.0" font-size="9.5" fill="#333333" text-anchor="middle" style="paint-order:stroke;stroke:#ffffff;stroke-width:3px">raw text</text>
@@ -22,22 +20,21 @@
 <text x="510.0" y="547.0" font-size="9.5" fill="#333333" text-anchor="middle" style="paint-order:stroke;stroke:#ffffff;stroke-width:3px">metadata</text>
 <path d="M340,225.0 L400,225.0" stroke="#555555" stroke-width="1.5" fill="none" stroke-dasharray="5,4" marker-end="url(#arrow)"/>
 <text x="370.0" y="221.0" font-size="9.5" fill="#333333" text-anchor="middle" style="paint-order:stroke;stroke:#ffffff;stroke-width:3px">reads status</text>
-<path d="M230.0,320 L510.0,200" stroke="#555555" stroke-width="1.5" fill="none" stroke-dasharray="5,4" marker-end="url(#arrow)"/>
-<text x="370.0" y="256.0" font-size="9.5" fill="#333333" text-anchor="middle" style="paint-order:stroke;stroke:#ffffff;stroke-width:3px">reads latest</text>
-<text x="370.0" y="267.0" font-size="9.5" fill="#333333" text-anchor="middle" style="paint-order:stroke;stroke:#ffffff;stroke-width:3px">job per doc</text>
-<path d="M510.0,320 L510.0,200" stroke="#555555" stroke-width="1.5" fill="none" stroke-dasharray="5,4" marker-end="url(#arrow)"/>
-<text x="510.0" y="256.0" font-size="9.5" fill="#333333" text-anchor="middle" style="paint-order:stroke;stroke:#ffffff;stroke-width:3px">updates status:</text>
-<text x="510.0" y="267.0" font-size="9.5" fill="#333333" text-anchor="middle" style="paint-order:stroke;stroke:#ffffff;stroke-width:3px">queued -&gt; processing -&gt; done/failed</text>
+<path d="M340,295.0 L380,295 L380,225 L400,225.0" stroke="#555555" stroke-width="1.5" fill="none" stroke-dasharray="5,4" marker-end="url(#arrow)"/>
+<text x="380.0" y="256.0" font-size="9.5" fill="#333333" text-anchor="middle" style="paint-order:stroke;stroke:#ffffff;stroke-width:3px">reads latest</text>
+<text x="380.0" y="267.0" font-size="9.5" fill="#333333" text-anchor="middle" style="paint-order:stroke;stroke:#ffffff;stroke-width:3px">job per doc</text>
+<path d="M433.0,270 L433.0,250" stroke="#555555" stroke-width="1.5" fill="none" stroke-dasharray="5,4" marker-end="url(#arrow)"/>
+<text x="433.0" y="256.0" font-size="9.5" fill="#333333" text-anchor="middle" style="paint-order:stroke;stroke:#ffffff;stroke-width:3px">writes status</text>
 <path d="M810.0,180 L810.0,200" stroke="#555555" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
 <path d="M810.0,250 L810.0,270" stroke="#555555" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
-<path d="M810.0,320 L510.0,550" stroke="#555555" stroke-width="1.5" fill="none" stroke-dasharray="5,4" marker-end="url(#arrow)"/>
-<text x="660.0" y="431.0" font-size="9.5" fill="#333333" text-anchor="middle" style="paint-order:stroke;stroke:#ffffff;stroke-width:3px">reads index</text>
+<path d="M700,295.0 L660,295 L660,580 L620,580.0" stroke="#555555" stroke-width="1.5" fill="none" stroke-dasharray="5,4" marker-end="url(#arrow)"/>
+<text x="660.0" y="433.5" font-size="9.5" fill="#333333" text-anchor="middle" style="paint-order:stroke;stroke:#ffffff;stroke-width:3px">reads index</text>
 <path d="M810.0,320 L810.0,340" stroke="#555555" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
 <text x="810.0" y="326.0" font-size="9.5" fill="#333333" text-anchor="middle" style="paint-order:stroke;stroke:#ffffff;stroke-width:3px">top-k chunks</text>
 <path d="M810.0,390 L810.0,410" stroke="#555555" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
 <path d="M810.0,460 L810.0,480" stroke="#555555" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
-<path d="M810.0,530 L810.0,130" stroke="#555555" stroke-width="1.5" fill="none" stroke-dasharray="5,4" marker-end="url(#arrow)"/>
-<text x="810.0" y="326.0" font-size="9.5" fill="#333333" text-anchor="middle" style="paint-order:stroke;stroke:#ffffff;stroke-width:3px">200 OK</text>
+<path d="M920,505.0 L945,505 L945,155 L920,155.0" stroke="#555555" stroke-width="1.5" fill="none" stroke-dasharray="5,4" marker-end="url(#arrow)"/>
+<text x="945.0" y="326.0" font-size="9.5" fill="#333333" text-anchor="middle" style="paint-order:stroke;stroke:#ffffff;stroke-width:3px">200 OK</text>
 <rect x="420" y="20" width="200" height="50" rx="8" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.5"/>
 <text x="520.0" y="42.0" font-size="11.5" fill="#222222" text-anchor="middle" font-weight="400">Client</text>
 <text x="520.0" y="56.0" font-size="11.5" fill="#222222" text-anchor="middle" font-weight="400">(curl / Swagger UI / frontend)</text>

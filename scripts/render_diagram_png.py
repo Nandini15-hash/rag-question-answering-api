@@ -12,7 +12,7 @@ HTML.write_text(f"<html><body style='margin:0'>{svg_content}</body></html>")
 
 with sync_playwright() as p:
     browser = p.chromium.launch(executable_path="/opt/pw-browsers/chromium-1194/chrome-linux/chrome")
-    page = browser.new_page(viewport={"width": 980, "height": 670})
+    page = browser.new_page(viewport={"width": 1030, "height": 670})
     page.goto(f"file://{HTML}")
     page.screenshot(path=str(PNG))
     browser.close()

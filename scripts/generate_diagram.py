@@ -37,9 +37,11 @@ def add_node(x, y, w, h, label, colorkey):
     return i
 
 
-def add_edge(src, tgt, label="", dashed=False):
+def add_edge(src, tgt, label="", dashed=False, route=None):
+    """route: optional dict with exitX/exitY/entryX/entryY and a list of (x,y) waypoints,
+    used to steer an edge around boxes that sit between source and target."""
     i = nid()
-    edges.append((i, src, tgt, label, dashed))
+    edges.append((i, src, tgt, label, dashed, route))
     return i
 
 
@@ -79,23 +81,47 @@ add_edge(client, list_ep, dashed=True)
 # --- Ingestion flow ---
 add_edge(upload_ep, save_file)
 add_edge(save_file, job_store, "202 Accepted\n(job_id returned)")
-add_edge(job_store, worker, "picked up by\nworker pool")
+add_edge(job_store, worker)
 add_edge(worker, loader)
 add_edge(loader, chunker, "raw text")
 add_edge(chunker, embedder_ingest, "chunks")
 add_edge(embedder_ingest, faiss_store, "vectors +\nmetadata")
 add_edge(status_ep, job_store, "reads status", dashed=True)
-add_edge(list_ep, job_store, "reads latest\njob per doc", dashed=True)
-add_edge(worker, job_store, "updates status:\nqueued -> processing -> done/failed", dashed=True)
+add_edge(
+    list_ep,
+    job_store,
+    "reads latest\njob per doc",
+    dashed=True,
+    route={"exitX": 1, "exitY": 0.5, "entryX": 0, "entryY": 0.5, "points": [(380, 295), (380, 225)]},
+)
+add_edge(
+    worker,
+    job_store,
+    "writes status",
+    dashed=True,
+    route={"exitX": 0.15, "exitY": 0, "entryX": 0.15, "entryY": 1, "points": []},
+)
 
 # --- Query flow ---
 add_edge(query_ep, embed_query)
 add_edge(embed_query, similarity)
-add_edge(similarity, faiss_store, "reads index", dashed=True)
+add_edge(
+    similarity,
+    faiss_store,
+    "reads index",
+    dashed=True,
+    route={"exitX": 0, "exitY": 0.5, "entryX": 1, "entryY": 0.5, "points": [(660, 295), (660, 580)]},
+)
 add_edge(similarity, generation, "top-k chunks")
 add_edge(generation, metrics)
 add_edge(metrics, response)
-add_edge(response, query_ep, "200 OK", dashed=True)
+add_edge(
+    response,
+    query_ep,
+    "200 OK",
+    dashed=True,
+    route={"exitX": 1, "exitY": 0.5, "entryX": 1, "entryY": 0.5, "points": [(945, 505), (945, 155)]},
+)
 
 
 def build_xml():
@@ -111,18 +137,25 @@ def build_xml():
             f'<mxGeometry x="{x}" y="{y}" width="{w}" height="{h}" as="geometry" /></mxCell>'
         )
 
-    for i, src, tgt, label, dashed in edges:
+    for i, src, tgt, label, dashed, route in edges:
         extra = "dashed=1;" if dashed else ""
+        if route:
+            extra += f"exitX={route['exitX']};exitY={route['exitY']};exitDx=0;exitDy=0;"
+            extra += f"entryX={route['entryX']};entryY={route['entryY']};entryDx=0;entryDy=0;"
         style = EDGE_STYLE.format(extra=extra)
+        points_xml = ""
+        if route and route.get("points"):
+            pts = "".join(f'<mxPoint x="{px}" y="{py}" />' for px, py in route["points"])
+            points_xml = f'<Array as="points">{pts}</Array>'
         cells.append(
             f'<mxCell id="{i}" value="{escape(label)}" style="{style}" edge="1" parent="1" '
-            f'source="{src}" target="{tgt}"><mxGeometry relative="1" as="geometry" /></mxCell>'
+            f'source="{src}" target="{tgt}"><mxGeometry relative="1" as="geometry">{points_xml}</mxGeometry></mxCell>'
         )
 
     body = "\n".join(cells)
     return f'''<mxfile host="app.diagrams.net" agent="rag-qa-system/generate_diagram.py" version="24.7.0">
   <diagram name="RAG Architecture" id="rag-architecture">
-    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="700" math="0" shadow="0">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1020" pageHeight="700" math="0" shadow="0">
       <root>
         {body}
       </root>
@@ -138,29 +171,50 @@ SVG_OUT = Path(__file__).parent.parent / "diagrams" / "architecture.svg"
 def build_svg():
     colors_hex = COLORS
     parts = [
-        '<svg xmlns="http://www.w3.org/2000/svg" width="960" height="650" '
-        'viewBox="0 0 960 650" font-family="Helvetica, Arial, sans-serif">',
-        '<rect width="960" height="650" fill="#ffffff"/>',
+        '<svg xmlns="http://www.w3.org/2000/svg" width="1010" height="650" '
+        'viewBox="0 0 1010 650" font-family="Helvetica, Arial, sans-serif">',
+        '<rect width="1010" height="650" fill="#ffffff"/>',
         '<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" '
         'orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#555555"/></marker></defs>',
     ]
 
     node_map = {i: (x, y, w, h) for i, x, y, w, h, label, colorkey in nodes}
 
+    def side_point(box, exitX, exitY):
+        bx, by, bw, bh = box
+        return bx + bw * exitX, by + bh * exitY
+
     # edges first (so nodes draw on top)
-    for i, src, tgt, label, dashed in edges:
-        sx, sy, sw, sh = node_map[src]
-        tx, ty, tw, th = node_map[tgt]
-        x1, y1 = sx + sw / 2, sy + sh
-        x2, y2 = tx + tw / 2, ty
-        # simple elbow if far apart horizontally and roughly same row band
-        if abs((sy + sh / 2) - (ty + th / 2)) < 5 and sx != tx:
-            x1, y1 = (sx + sw, sy + sh / 2) if sx < tx else (sx, sy + sh / 2)
-            x2, y2 = (tx, ty + th / 2) if sx < tx else (tx + tw, ty + th / 2)
+    for i, src, tgt, label, dashed, route in edges:
+        sbox = node_map[src]
+        tbox = node_map[tgt]
+        sx, sy, sw, sh = sbox
+        tx, ty, tw, th = tbox
+
+        if route:
+            x1, y1 = side_point(sbox, route["exitX"], route["exitY"])
+            x2, y2 = side_point(tbox, route["entryX"], route["entryY"])
+            waypoints = route.get("points", [])
+            path_points = [(x1, y1)] + waypoints + [(x2, y2)]
+        else:
+            x1, y1 = sx + sw / 2, sy + sh
+            x2, y2 = tx + tw / 2, ty
+            if abs((sy + sh / 2) - (ty + th / 2)) < 5 and sx != tx:
+                x1, y1 = (sx + sw, sy + sh / 2) if sx < tx else (sx, sy + sh / 2)
+                x2, y2 = (tx, ty + th / 2) if sx < tx else (tx + tw, ty + th / 2)
+            path_points = [(x1, y1), (x2, y2)]
+
         dash = ' stroke-dasharray="5,4"' if dashed else ""
-        parts.append(f'<path d="M{x1},{y1} L{x2},{y2}" stroke="#555555" stroke-width="1.5" fill="none"{dash} marker-end="url(#arrow)"/>')
+        d = "M" + " L".join(f"{px},{py}" for px, py in path_points)
+        parts.append(f'<path d="{d}" stroke="#555555" stroke-width="1.5" fill="none"{dash} marker-end="url(#arrow)"/>')
         if label:
-            mx, my = (x1 + x2) / 2, (y1 + y2) / 2
+            # place label near the midpoint of the path's longest segment for readability
+            mx, my = path_points[len(path_points) // 2]
+            if len(path_points) > 2:
+                mx = (path_points[1][0] + path_points[-2][0]) / 2 if len(path_points) > 2 else mx
+                my = (path_points[1][1] + path_points[-2][1]) / 2
+            else:
+                mx, my = (path_points[0][0] + path_points[1][0]) / 2, (path_points[0][1] + path_points[1][1]) / 2
             lines = label.split("\n")
             for li, line in enumerate(lines):
                 parts.append(
