@@ -2,11 +2,9 @@ import uuid
 from pathlib import Path
 
 from fastapi import APIRouter, HTTPException, Request, UploadFile
-from fastapi.responses import JSONResponse
 
 from app.config import settings
 from app.ingestion.jobs import get_job_store, get_worker_pool
-from app.ingestion.loaders import UnsupportedFileType
 from app.middleware.rate_limit import limiter
 from app.models import DocumentSummary, JobStatus, JobStatusResponse, UploadResponse
 
