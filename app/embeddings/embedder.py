@@ -60,7 +60,19 @@ class OpenAIEmbedder(Embedder):
         self.dimension = 1536
 
     def embed(self, texts: list[str]) -> np.ndarray:
-        response = self._client.embeddings.create(model=self._model_name, input=texts)
+        from openai import APIError, AuthenticationError, RateLimitError
+
+        try:
+            response = self._client.embeddings.create(model=self._model_name, input=texts, timeout=20)
+        except AuthenticationError as exc:
+            raise RuntimeError("OpenAI rejected the API key while embedding (check OPENAI_API_KEY in .env).") from exc
+        except RateLimitError as exc:
+            raise RuntimeError("OpenAI rate limit or quota exceeded while embedding — try again shortly.") from exc
+        except APIError as exc:
+            raise RuntimeError(f"OpenAI API error while embedding: {exc}") from exc
+        except Exception as exc:  # noqa: BLE001 — network/timeout and anything else
+            raise RuntimeError(f"Could not reach OpenAI while embedding: {exc}") from exc
+
         vectors = [item.embedding for item in response.data]
         arr = np.asarray(vectors, dtype="float32")
         norms = np.linalg.norm(arr, axis=1, keepdims=True)
