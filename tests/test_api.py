@@ -66,7 +66,7 @@ def test_upload_ingest_and_query_roundtrip(client):
     assert q.status_code == 200
     data = q.json()
     assert "sources" in data and len(data["sources"]) > 0
-    assert data["metrics"]["generation_mode"] in ("openai", "extractive_fallback")
+    assert data["metrics"]["generation_mode"] in ("openai", "extractive_fallback", "not_found")
     assert data["metrics"]["retrieval_latency_ms"] >= 0
 
 

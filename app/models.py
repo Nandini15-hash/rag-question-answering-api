@@ -71,7 +71,7 @@ class QueryMetrics(BaseModel):
     generation_latency_ms: float
     total_latency_ms: float
     top_similarity_score: float | None = None
-    generation_mode: str  # "openai" | "extractive_fallback"
+    generation_mode: str  # "openai" | "extractive_fallback" | "not_found"
 
 
 class QueryResponse(BaseModel):
