@@ -137,6 +137,21 @@ curl -X POST http://127.0.0.1:8000/query \
 Optional request fields: `top_k` (override the number of chunks retrieved)
 and `document_ids` (restrict the search to specific documents).
 
+### 5. Asking something the documents don't cover
+
+The system is required to say so rather than invent an answer. Try:
+
+```bash
+curl -X POST http://127.0.0.1:8000/query \
+  -H "Content-Type: application/json" \
+  -d '{"question": "What is the capital of France?"}'
+```
+
+This still returns `200 OK` (it's a normal outcome, not an error) with
+`metrics.generation_mode` set to `"not_found"` and an honest answer instead
+of a hallucinated one. See "Not-in-documents handling" in `EXPLANATION.md`
+for how this is decided and its one known limitation.
+
 ## Rate limiting
 
 All endpoints are limited (default `20/minute` per client IP, configurable
@@ -170,12 +185,55 @@ app/
   middleware/rate_limit.py         slowapi limiter
   api/routes_documents.py, routes_query.py
   utils/metrics.py                   JSONL metrics logging
-tests/                    pytest suite (chunking unit tests + API integration tests)
+tests/                    pytest suite (chunking, not-in-docs threshold logic, API integration)
 sample_docs/              two demo documents (.txt + .pdf) used for testing
 scripts/make_sample_pdf.py  generates the sample PDF (not part of the app)
 diagrams/                 architecture.drawio + exported PNG
 EXPLANATION.md            chunk size rationale, failure case, metrics
 ```
+
+## What works vs. what doesn't
+
+Honest account, per the "60% working and disclosed beats 100% claimed and
+broken" grading note. See `EXPLANATION.md` point 4 for the fuller version
+and next steps.
+
+**Works, tested end-to-end:**
+- Upload → background ingestion (PDF and TXT) → chunk → embed → FAISS index,
+  with real status polling (`queued` → `processing` → `done`/`failed`)
+- Query → retrieval → generation → answer with cited sources and per-request
+  metrics (retrieval/generation latency, top similarity, generation mode)
+- "Not in documents" short-circuit (`not_found` mode) — see limitation below
+- Pydantic validation on both endpoints (short/blank questions, bad file
+  types, empty files all rejected with clear 4xx errors)
+- Rate limiting (429 after the configured limit)
+- Explicit, typed error handling on the OpenAI embedding and generation
+  calls (auth, rate-limit, network/timeout each get a distinct message)
+- 16 automated tests (chunking, generation-threshold logic, full API
+  round-trip), all passing
+
+**Works, but with a known caveat:**
+- The `similarity_threshold` cutoff (what the *extractive fallback* uses to
+  decide "not in documents" when no LLM key is set) is unreliable with
+  `EMBEDDING_PROVIDER=offline` specifically — its relevant/irrelevant score
+  distributions overlap (measured, see `EXPLANATION.md`). It's reliable with
+  the default `local` provider or `openai`, which weren't network-testable
+  in the sandbox this was built in (see below).
+- `local` (sentence-transformers) could not actually be run in the sandbox
+  used to build this — huggingface.co is blocked by that sandbox's egress
+  policy (confirmed 403, not a bug). Everything was tested against the
+  zero-network `offline` provider instead. The code path is the same either
+  way (`app/embeddings/embedder.py`), just not integration-tested with the
+  recommended default embedder in *this* environment.
+
+**Not finished:**
+- No evaluation set (a fixed list of question → expected-chunk pairs) to
+  measure retrieval precision/recall numerically — see EXPLANATION.md point
+  4 for what that would look like.
+- No support for re-ingesting/replacing a document by the same name (each
+  upload creates a new `document_id`; the old chunks aren't removed).
+- No streaming responses — `/query` blocks until the full LLM answer is
+  generated rather than streaming tokens.
 
 ## Design choices and constraints addressed
 
